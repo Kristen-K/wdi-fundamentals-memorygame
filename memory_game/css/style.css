@@ -54,16 +54,33 @@ main {
 
  }
 
- p {
- 	font-family: "Droid Serif";
- 	line-height: 26px;
- 	font-size: 18px;
-
- }
-
  img {
  	margin: 40px 8px 0 8px;
  }
+
+ p {
+ 	font-family: "Droid Serif";
+ 	line-height: 26px;
+	font-size: 18px;
+ }
+
+ button {
+  background: #F15B31;
+  color: white;
+  margin: 40px;
+  padding: 10px 40px;
+
+ }
+
+ /*#score {
+    background: blue;
+    color: red;
+    margin: 10px;
+    font-family: Raleway;
+   
+};
+
+*/
 
 body { 
  text-align: center;
