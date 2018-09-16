@@ -65,11 +65,9 @@ var newDeck = function() {
 
     	//Math.random() - gives you a random decimal number. Math.floor() truncates the decimal number to only the integer portion (0 - card.length)
         randomNumber = Math.floor(Math.random() * cards.length);
-		console.log(randomNumber);
 
 		//removes randomNumber value from cards array, pushes changed values into cards array
         cards.push(cards.splice(randomNumber, 1)[0]);
-        console.log(cards);
     }
 };
 
@@ -101,7 +99,7 @@ var resetButton = function(){
     cardsInPlay = [];
     //assigns image elements from DOM to variable
     var getCardElements = document.getElementsByTagName("img");
-    console.log(getCardElements);
+
     // loop for Dom images
     for ( i = 0; i < getCardElements.length; i++){
         //sets attributes for getCardElement
