@@ -1,5 +1,5 @@
 
-// variable array 
+// variable array
 var cards = [
 {
 	rank: "queen",
@@ -42,11 +42,6 @@ var flipCard = function() {
 	//assigns user's clicks to variable
 	var cardId = this.getAttribute('data-id');
 
-	// randomises cards array
-	// 0.5 - Math.random() - returns random numbers roughly 50% negative and 50% positive.
-
-	cards.sort(function(a, b){return 0.5 - Math.random()});
-
 	// pushes user's .rank selection into cardsinplay
     cardsInPlay.push(cards[cardId].rank);
 
@@ -64,16 +59,27 @@ var flipCard = function() {
     
 };
 
+var newDeck = function() {
+	// loops if i is less than 16
+    for (var i=0; i < 16; i++){
+
+    	//Math.random() - gives you a random decimal number. Math.floor() truncates the decimal number to only the integer portion (0 - card.length)
+        randomNumber = Math.floor(Math.random() * cards.length);
+
+		//removes randomNumber value from cards array, pushes changed values into cards array
+        cards.push(cards.splice(randomNumber, 1)[0]);
+    }
+};
 
 var createBoard = function() {
-	
+
 	//for loop for cards array
 	for (var i = 0; i < cards.length; i++) {
 
 		// creates image element 
 		var cardElement = document.createElement('img');
 
-		//sets attibutes for cardElement 
+		//sets attributes for cardElement
 		cardElement.setAttribute('src', 'images/back.png');
 		cardElement.setAttribute('data-id', i);
 
@@ -82,7 +88,24 @@ var createBoard = function() {
 
 		// appends cards to board using ID
 		document.getElementById("game-board").appendChild(cardElement);
+
+        newDeck();
 	}
+
+};
+
+var resetButton = function(){
+
+    cardsInPlay = [];
+    //assigns image elements from DOM to variable
+    var getCardElements = document.getElementsByTagName("img");
+
+    // loop for Dom images
+    for ( i = 0; i < getCardElements.length; i++){
+        //sets attributes for getCardElement
+        getCardElements[i].setAttribute("src", "images/back.png");
+    }
+    newDeck();
 
 };
 
